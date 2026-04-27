@@ -1,18 +1,23 @@
-# Afyanalytics Platform Integration
+# Afyanalytics Integration – PHP Implementation
 
-This service integrates with the Afyanalytics Health Platform using a secure two‑step handshake.
+This service integrates with Afyanalytics Health Platform using a two‑step handshake (initiate → complete) and handles the 15‑minute token expiry.
 
 ## Features
 
-- Initiates handshake (`/initiate-handshake`) and retrieves a short‑lived handshake token.
-- Completes handshake (`/complete-handshake`) within the 15‑minute expiry window.
-- Automatic retry if handshake token expires.
-- Full logging of handshake token, expiry time, and success/failure.
-- Secure token storage (in‑memory for demo; replace with DB/Redis in production).
+- Initiates handshake with platform credentials  
+- Completes handshake within expiry window  
+- Automatic retry if handshake token expires  
+- Logs handshake token, expiry time, success/failure  
+- Simple token storage (PHP session – replace with DB/Redis in production)  
+
+## Requirements
+
+- PHP 7.4+ with cURL and JSON extensions  
+- Web server (Apache/Nginx) or PHP built‑in server  
 
 ## Setup
 
-1. **Clone the repository**
+1. **Clone the repository**  
    ```bash
-   git clone https://github.com/yourusername/afyanalytics-integration.git
-   cd afyanalytics-integration
+   git clone https://github.com/kutohjepngeno/External-Platform-Integration-Guide-for-Developers-to-Afyanalytics-Platform.git
+   cd afyanalytics-php
